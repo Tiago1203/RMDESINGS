@@ -3,10 +3,10 @@ import logoImage from '../../assets/logo-rm-designs.png'; // Asegúrate que el n
 
 export default function Logo({ size = 'default', className = '', animated = false }) {
   const sizeClasses = {
-    small: 'h-20',
-    default: 'h-28',
-    large: 'h-36',
-    hero: 'h-28 md:h-36',
+    small: 'h-24',
+    default: 'h-36',
+    large: 'h-44',
+    hero: 'h-32 md:h-40',
     landing: 'h-80 md:h-[420px] lg:h-[500px]',
   };
 
