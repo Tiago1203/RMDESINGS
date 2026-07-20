@@ -40,9 +40,9 @@ const megaMenuData = [
 ]
 
 const navLinks = [
-  { label: 'Proceso', to: '/' },
-  { label: 'Nosotros', to: '/' },
-  { label: 'Contacto', to: '/' },
+  { label: 'Proceso', to: '/proceso' },
+  { label: 'Nosotros', to: '/nosotros' },
+  { label: 'Contacto', to: '/contacto' },
 ]
 
 const Navbar = () => {
@@ -187,7 +187,7 @@ const Navbar = () => {
             ))}
 
             <Link
-              to="/"
+              to="/contacto"
               className="ml-4 relative px-6 py-2.5 text-xs tracking-[0.2em] uppercase text-noir-950 bg-champagne-400 font-medium hover:bg-gold-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-champagne-400 focus:ring-offset-2 focus:ring-offset-noir-950 shadow-lg shadow-champagne-400/20 hover:shadow-champagne-400/40"
             >
               Contactar
@@ -240,7 +240,7 @@ const Navbar = () => {
                 </Link>
               ))}
 
-              <Link to="/" onClick={handleLinkClick} className="mt-4 text-center px-6 py-3 text-sm tracking-[0.15em] uppercase text-noir-950 bg-champagne-400 font-medium hover:bg-gold-400 transition-all duration-300">
+              <Link to="/contacto" onClick={handleLinkClick} className="mt-4 text-center px-6 py-3 text-sm tracking-[0.15em] uppercase text-noir-950 bg-champagne-400 font-medium hover:bg-gold-400 transition-all duration-300">
                 Contactar
               </Link>
             </div>

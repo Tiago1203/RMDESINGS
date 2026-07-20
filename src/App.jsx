@@ -8,6 +8,9 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
 import CategoryPage from './pages/CategoryPage'
+import ProcesoPage from './pages/ProcesoPage'
+import NosotrosPage from './pages/NosotrosPage'
+import ContactoPage from './pages/ContactoPage'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -31,10 +34,10 @@ function MainLayout() {
     gsap.to(mainRef.current, { opacity: 1, duration: 0.6, ease: 'power2.out' })
 
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 0.8,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      wheelMultiplier: 1,
+      wheelMultiplier: 1.2,
       touchMultiplier: 2,
     })
     lenis.on('scroll', ScrollTrigger.update)
@@ -57,6 +60,9 @@ function MainLayout() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/coleccion/:categorySlug" element={<CategoryPage />} />
+          <Route path="/proceso" element={<ProcesoPage />} />
+          <Route path="/nosotros" element={<NosotrosPage />} />
+          <Route path="/contacto" element={<ContactoPage />} />
           <Route path="*" element={<HomePage />} />
         </Routes>
       </main>
@@ -76,7 +82,7 @@ function App() {
 
     gsap.to(wrapperRef.current, {
       opacity: 0,
-      duration: 0.8,
+      duration: 0.4,
       ease: 'power2.inOut',
       onComplete: () => {
         setShowLanding(false)
@@ -89,7 +95,7 @@ function App() {
     if (!showLanding && wrapperRef.current) {
       gsap.fromTo(wrapperRef.current,
         { opacity: 0 },
-        { opacity: 1, duration: 0.6, ease: 'power2.out' }
+        { opacity: 1, duration: 0.3, ease: 'power2.out' }
       )
     }
   }, [showLanding])
