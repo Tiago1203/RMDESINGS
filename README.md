@@ -100,6 +100,7 @@ El servidor de desarrollo estará disponible en `http://localhost:5173`
 
 - [ADR-001: Arquitectura y Stack Tecnológico](./docs/ADR-001-architecture-stack.md)
 - [ADR-002: Hero Video & GSAP Animations](./docs/ADR-002-hero-video-gsap.md)
+- [ADR-003: FeatureGrid & ScrollTrigger](./docs/ADR-003-feature-grid-scrolltrigger.md)
 
 ## ✨ Componentes Implementados
 
@@ -109,6 +110,13 @@ El servidor de desarrollo estará disponible en `http://localhost:5173`
 - Parallax scroll effect
 - Navegación responsive
 - Accesibilidad WCAG 2.1 AA
+
+### ✅ Feature Grid
+- ScrollTrigger con animaciones staggered al hacer scroll
+- Timeline-based entrance animation
+- Hover parallax effects en tarjetas
+- Collections preview con 3 colecciones destacadas
+- Iconos con scale/rotation animation
 
 ## 🔧 Configuración de Desarrollo
 
