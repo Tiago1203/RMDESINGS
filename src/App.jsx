@@ -6,7 +6,7 @@ import LandingPage from './components/LandingPage'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import FeatureGrid from './components/FeatureGrid'
-import ProductGallery from './components/ProductGallery'
+import CatalogPage from './components/CatalogPage'
 import Testimonials from './components/Testimonials'
 import ProcessSection from './components/ProcessSection'
 import Footer from './components/Footer'
@@ -60,7 +60,7 @@ function MainSite() {
       <main className="lenis-smooth">
         <div className="hero-4d"><Hero /></div>
         <div className="content-4d"><FeatureGrid /></div>
-        <div className="content-4d"><ProductGallery /></div>
+        <div className="content-4d"><CatalogPage /></div>
         <div className="content-4d"><Testimonials /></div>
         <div className="content-4d"><ProcessSection /></div>
       </main>

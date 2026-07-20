@@ -11,7 +11,7 @@ import Logo from './branding/Logo'
  */
 
 const navLinks = [
-  { label: 'Colecciones', href: '#colecciones' },
+  { label: 'Colecciones', href: '#cat-trajes' },
   { label: 'Proceso', href: '#proceso' },
   { label: 'Nosotros', href: '#nosotros' },
   { label: 'Contacto', href: '#contacto' },
