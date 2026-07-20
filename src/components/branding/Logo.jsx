@@ -15,8 +15,9 @@ export default function Logo({ size = 'default', className = '', animated = fals
         src={logoImage} 
         alt="RM Designs by Renata Real" 
         className={`${sizeClasses[size] || sizeClasses.default} w-auto object-contain transition-all duration-300 ${animated ? 'hover:scale-105' : ''}`}
-        style={{ 
-          filter: 'drop-shadow(0 0 10px rgba(229, 201, 141, 0.3))'
+        style={{
+          filter: 'drop-shadow(0 0 10px rgba(229, 201, 141, 0.3))',
+          mixBlendMode: 'screen',
         }}
       />
     </div>

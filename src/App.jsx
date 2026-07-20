@@ -25,14 +25,12 @@ function MainSite() {
     const entranceTl = gsap.timeline({ defaults: { ease: 'power4.out' } })
 
     gsap.set(mainRef.current, { opacity: 0 })
-    gsap.set('.navbar-4d', { y: -100, opacity: 0 })
     gsap.set('.hero-4d', { scale: 1.2, opacity: 0, filter: 'blur(20px)' })
     gsap.set('.content-4d', { y: 100, opacity: 0 })
 
     entranceTl
       .to(mainRef.current, { opacity: 1, duration: 0.6 })
-      .to('.navbar-4d', { y: 0, opacity: 1, duration: 1 }, '-=0.3')
-      .to('.hero-4d', { scale: 1, opacity: 1, filter: 'blur(0px)', duration: 1.2 }, '-=0.7')
+      .to('.hero-4d', { scale: 1, opacity: 1, filter: 'blur(0px)', duration: 1.2 }, '-=0.3')
       .to('.content-4d', { y: 0, opacity: 1, duration: 0.8, stagger: 0.08 }, '-=0.5')
 
     /* Lenis */
@@ -57,7 +55,7 @@ function MainSite() {
 
   return (
     <div ref={mainRef} className="relative min-h-screen bg-noir-950 grain-texture">
-      <div className="navbar-4d"><Navbar /></div>
+      <Navbar />
 
       <main className="lenis-smooth">
         <div className="hero-4d"><Hero /></div>

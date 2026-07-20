@@ -198,37 +198,23 @@ const LandingPage = ({ onEnter }) => {
     if (!containerRef.current) return
 
     const ctx = gsap.context(() => {
-      /* ---- SECTION 1: Logo Reveal ---- */
-      const tl1 = gsap.timeline({
-        scrollTrigger: {
-          trigger: section1Ref.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: 1,
-          pin: true,
-          anticipatePin: 1,
-        },
-      })
+      /* ---- SECTION 1: Logo 4D Auto Reveal ---- */
+      const tl1 = gsap.timeline({ defaults: { ease: 'power4.out' } })
 
       tl1
         .fromTo('.landing-logo',
-          { opacity: 0, scale: 0.7, filter: 'blur(20px)' },
-          { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 1 }
+          { opacity: 0, scale: 0.5, filter: 'blur(40px)', rotationY: 30 },
+          { opacity: 1, scale: 1, filter: 'blur(0px)', rotationY: 0, duration: 1.6 }
         )
-        .fromTo('.landing-tagline',
-          { opacity: 0, y: 40 },
-          { opacity: 1, y: 0, duration: 0.8 },
-          '-=0.4'
+        .fromTo('.landing-ring',
+          { opacity: 0, scale: 0.3 },
+          { opacity: 1, scale: 1, duration: 1.2, ease: 'power3.out' },
+          '-=1.0'
         )
-        .fromTo('.landing-divider',
-          { scaleX: 0 },
-          { scaleX: 1, duration: 0.6 },
-          '-=0.3'
-        )
-        .fromTo('.landing-arrow-1',
-          { opacity: 0, y: -10 },
-          { opacity: 1, y: 0, duration: 0.4 },
-          '-=0.1'
+        .fromTo('.landing-particles span',
+          { opacity: 0, scale: 0 },
+          { opacity: 1, scale: 1, duration: 0.6, stagger: 0.08, ease: 'back.out(1.7)' },
+          '-=0.8'
         )
 
       /* ---- SECTION 2: "Trajes que Transforman" + Dancer ---- */
@@ -333,7 +319,7 @@ const LandingPage = ({ onEnter }) => {
   return (
     <div ref={containerRef} className="relative bg-noir-950">
 
-      {/* ===== SECTION 1: Logo Reveal ===== */}
+      {/* ===== SECTION 1: Logo 4D Auto Reveal ===== */}
       <section
         ref={section1Ref}
         className="relative h-screen w-full flex items-center justify-center overflow-hidden"
@@ -342,29 +328,35 @@ const LandingPage = ({ onEnter }) => {
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'radial-gradient(ellipse at center, rgba(229,201,141,0.06) 0%, transparent 70%)',
+            background: 'radial-gradient(ellipse at center, rgba(229,201,141,0.08) 0%, transparent 70%)',
           }}
         />
 
-        <div className="relative z-10 flex flex-col items-center text-center px-6">
-          {/* Logo */}
-          <div className="landing-logo opacity-0 mb-10">
-            <Logo size="hero" />
-          </div>
+        {/* Decorative ring behind logo */}
+        <div className="landing-ring opacity-0 absolute w-64 h-64 md:w-80 md:h-80 rounded-full border border-champagne-400/10" />
+        <div className="landing-ring opacity-0 absolute w-80 h-80 md:w-[420px] md:h-[420px] rounded-full border border-champagne-400/5" />
 
-          {/* Divider */}
-          <div className="landing-divider w-24 h-px bg-gradient-to-r from-transparent via-champagne-400 to-transparent mb-8 origin-center" />
-
-          {/* Tagline */}
-          <p className="landing-tagline opacity-0 font-sans text-xs md:text-sm tracking-[0.3em] uppercase text-champagne-400/80">
-            Alta Costura en Baile
-          </p>
+        {/* Floating particles */}
+        <div className="landing-particles absolute inset-0 pointer-events-none">
+          {[...Array(12)].map((_, i) => (
+            <span
+              key={i}
+              className="absolute w-1 h-1 bg-champagne-400/30 rounded-full"
+              style={{
+                left: `${10 + (i * 7.5)}%`,
+                top: `${15 + ((i * 13) % 70)}%`,
+                animation: `landingFloat ${3 + (i % 4) * 0.5}s ease-in-out infinite`,
+                animationDelay: `${i * 0.2}s`,
+              }}
+            />
+          ))}
         </div>
 
-        {/* Scroll arrow */}
-        <div className="landing-arrow-1 opacity-0 absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-          <span className="text-noir-500 text-[10px] tracking-[0.25em] uppercase">Scroll</span>
-          <ArrowDown size={14} className="text-champagne-400/60" style={{ animation: 'landingBounce 2s infinite' }} />
+        <div className="relative z-10 flex flex-col items-center text-center px-6">
+          {/* Logo */}
+          <div className="landing-logo opacity-0">
+            <Logo size="hero" />
+          </div>
         </div>
       </section>
 
