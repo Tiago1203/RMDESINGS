@@ -94,7 +94,8 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* Logo */}
           <a 
-            href="/" 
+            href="#"
+            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
             className="relative z-10 focus:outline-none focus:ring-2 focus:ring-champagne-400 rounded-sm"
             aria-label="RM Designs - Inicio"
           >
