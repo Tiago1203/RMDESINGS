@@ -333,8 +333,8 @@ const LandingPage = ({ onEnter }) => {
         />
 
         {/* Decorative ring behind logo */}
-        <div className="landing-ring opacity-0 absolute w-[350px] h-[350px] md:w-[450px] md:h-[450px] lg:w-[550px] lg:h-[550px] rounded-full border border-champagne-400/10" />
-        <div className="landing-ring opacity-0 absolute w-[420px] h-[420px] md:w-[520px] md:h-[520px] lg:w-[640px] lg:h-[640px] rounded-full border border-champagne-400/5" />
+        <div className="landing-ring opacity-0 absolute w-[450px] h-[450px] md:w-[550px] md:h-[550px] lg:w-[650px] lg:h-[650px] rounded-full border border-champagne-400/10" />
+        <div className="landing-ring opacity-0 absolute w-[520px] h-[520px] md:w-[640px] md:h-[640px] lg:w-[750px] lg:h-[750px] rounded-full border border-champagne-400/5" />
 
         {/* Floating particles */}
         <div className="landing-particles absolute inset-0 pointer-events-none">
@@ -433,7 +433,7 @@ const LandingPage = ({ onEnter }) => {
         <div className="relative z-10 flex flex-col items-center text-center px-6">
           {/* Logo large */}
           <div className="brand-logo opacity-0 mb-10">
-            <Logo size="hero" />
+            <Logo size="landing" />
           </div>
 
           {/* Divider */}
