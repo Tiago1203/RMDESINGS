@@ -101,6 +101,7 @@ El servidor de desarrollo estará disponible en `http://localhost:5173`
 - [ADR-001: Arquitectura y Stack Tecnológico](./docs/ADR-001-architecture-stack.md)
 - [ADR-002: Hero Video & GSAP Animations](./docs/ADR-002-hero-video-gsap.md)
 - [ADR-003: FeatureGrid & ScrollTrigger](./docs/ADR-003-feature-grid-scrolltrigger.md)
+- [ADR-004: ProcessSection & Timeline](./docs/ADR-004-process-section-timeline.md)
 
 ## ✨ Componentes Implementados
 
@@ -117,6 +118,13 @@ El servidor de desarrollo estará disponible en `http://localhost:5173`
 - Hover parallax effects en tarjetas
 - Collections preview con 3 colecciones destacadas
 - Iconos con scale/rotation animation
+
+### ✅ Process Section
+- Timeline horizontal animado con barra de progreso
+- Animaciones secuenciales con ScrollTrigger
+- Iconos con bounce animation
+- Responsive design (horizontal desktop / vertical mobile)
+- 4 pasos: Consulta, Diseño, Confección, Entrega
 
 ## 🔧 Configuración de Desarrollo
 
