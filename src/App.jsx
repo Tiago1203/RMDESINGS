@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import FeatureGrid from './components/FeatureGrid'
 import ProcessSection from './components/ProcessSection'
@@ -25,19 +26,25 @@ function App() {
   }, [])
 
   return (
-    <main className="relative min-h-screen bg-noir-950 grain-texture">
-      {/* Hero Section */}
-      <Hero />
+    <div className="relative min-h-screen bg-noir-950 grain-texture">
+      {/* Fixed Navigation with Branding */}
+      <Navbar />
 
-      {/* Feature Grid Section */}
-      <FeatureGrid />
+      {/* Main Content */}
+      <main>
+        {/* Hero Section */}
+        <Hero />
 
-      {/* Process/About Section */}
-      <ProcessSection />
+        {/* Feature Grid Section */}
+        <FeatureGrid />
+
+        {/* Process Section */}
+        <ProcessSection />
+      </main>
 
       {/* Footer */}
       <Footer />
-    </main>
+    </div>
   )
 }
 

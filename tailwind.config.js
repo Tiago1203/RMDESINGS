@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Monochromatic base palette
+        // Monochromatic base palette - Deep Black Foundation
         noir: {
           50: '#f7f7f7',
           100: '#e3e3e3',
@@ -35,6 +35,7 @@ export default {
           900: '#75581f',
           950: '#3f2b0c',
         },
+        // Champagne - Soft gold tones for elegant accents
         champagne: {
           50: '#fdfbf7',
           100: '#faf5eb',
@@ -48,6 +49,7 @@ export default {
           900: '#784e31',
           950: '#412818',
         },
+        // Ivory - Warm off-white for text
         ivory: {
           50: '#fefef9',
           100: '#fdfcf2',
@@ -60,6 +62,42 @@ export default {
           800: '#a1913c',
           900: '#847636',
           950: '#473f1d',
+        },
+      },
+      borderColor: {
+        // Luxury border utilities
+        'champagne': {
+          DEFAULT: '#e5c98d',
+          50: '#fdfbf7',
+          100: '#faf5eb',
+          200: '#f5ead4',
+          300: '#eeddb5',
+          400: '#e5c98d',
+          500: '#dbb06a',
+        },
+        'gold': {
+          DEFAULT: '#d4a82a',
+          400: '#f2d87a',
+          500: '#edc54a',
+          600: '#d4a82a',
+        },
+      },
+      textColor: {
+        'champagne': {
+          DEFAULT: '#e5c98d',
+          50: '#fdfbf7',
+          100: '#faf5eb',
+          200: '#f5ead4',
+          300: '#eeddb5',
+          400: '#e5c98d',
+          500: '#dbb06a',
+          600: '#cd9350',
+        },
+        'gold': {
+          DEFAULT: '#d4a82a',
+          400: '#f2d87a',
+          500: '#edc54a',
+          600: '#d4a82a',
         },
       },
       fontFamily: {
@@ -83,6 +121,7 @@ export default {
         'fade-in': 'fadeIn 1s ease-out forwards',
         'slide-up': 'slideUp 0.8s ease-out forwards',
         'scale-in': 'scaleIn 0.6s ease-out forwards',
+        'shimmer': 'shimmer 2s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -97,12 +136,28 @@ export default {
           '0%': { opacity: '0', transform: 'scale(0.95)' },
           '100%': { opacity: '1', transform: 'scale(1)' },
         },
+        shimmer: {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
+        },
       },
       transitionTimingFunction: {
         'luxury': 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
       },
       spacing: {
         'section': 'clamp(4rem, 10vh, 8rem)',
+      },
+      boxShadow: {
+        'champagne': '0 0 20px rgba(229, 201, 141, 0.15)',
+        'champagne-lg': '0 0 40px rgba(229, 201, 141, 0.2)',
+        'gold': '0 0 20px rgba(212, 168, 42, 0.15)',
+        'gold-lg': '0 0 40px rgba(212, 168, 42, 0.2)',
+      },
+      backgroundImage: {
+        'gradient-gold': 'linear-gradient(135deg, #f2d87a 0%, #edc54a 50%, #d4a82a 100%)',
+        'gradient-champagne': 'linear-gradient(135deg, #f5ead4 0%, #e5c98d 50%, #dbb06a 100%)',
+        'gradient-radial': 'radial-gradient(ellipse at center, rgba(229, 201, 141, 0.1) 0%, transparent 70%)',
+        'shimmer': 'linear-gradient(90deg, transparent 0%, rgba(229, 201, 141, 0.1) 50%, transparent 100%)',
       },
     },
   },

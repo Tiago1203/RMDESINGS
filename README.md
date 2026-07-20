@@ -103,8 +103,16 @@ El servidor de desarrollo estará disponible en `http://localhost:5173`
 - [ADR-003: FeatureGrid & ScrollTrigger](./docs/ADR-003-feature-grid-scrolltrigger.md)
 - [ADR-004: ProcessSection & Timeline](./docs/ADR-004-process-section-timeline.md)
 - [ADR-005: Footer & App Assembly](./docs/ADR-005-footer-and-app-assembly.md)
+- [ADR-006: Branding & Logo Integration](./docs/ADR-006-branding-and-logo-integration.md)
 
 ## ✨ Componentes Implementados - v1.0
+
+### ✅ Navbar
+- Logo SVG con monograma "RM" y corona dorada
+- Branding "by Renata Real" integrado
+- Scroll effect con fondo blur
+- Navegación responsive (desktop/mobile)
+- CTA button con estilo premium
 
 ### ✅ Hero Section
 - Video background con poster fallback para LCP optimizado
@@ -133,6 +141,22 @@ El servidor de desarrollo estará disponible en `http://localhost:5173`
 - Navegación con efectos hover
 - Información de contacto
 - Links sociales con Instagram
+
+## 🎨 Identidad Visual
+
+### Logotipo
+- Monograma "RM" con elementos de corona
+- Subtítulo "by Renata Real"
+- Gradientes dorados champagne
+- Tipografía Cormorant Garamond
+
+### Paleta de Colores
+| Color | Hex | Uso |
+|-------|-----|-----|
+| Noir 950 | `#0a0a0a` | Fondo principal |
+| Champagne 400 | `#e5c98d` | Acentos dorados |
+| Gold 600 | `#d4a82a` | Highlights |
+| Ivory 100 | `#fefef9` | Texto principal |
 
 ## 🔧 Configuración de Desarrollo
 
