@@ -7,7 +7,7 @@ export default function Logo({ size = 'default', className = '', animated = fals
     default: 'h-20',
     large: 'h-24',
     hero: 'h-28 md:h-36',
-    landing: 'h-48 md:h-64 lg:h-72',
+    landing: 'h-64 md:h-80 lg:h-96',
   };
 
   return (

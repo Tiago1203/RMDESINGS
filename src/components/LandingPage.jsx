@@ -333,8 +333,8 @@ const LandingPage = ({ onEnter }) => {
         />
 
         {/* Decorative ring behind logo */}
-        <div className="landing-ring opacity-0 absolute w-72 h-72 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px] rounded-full border border-champagne-400/10" />
-        <div className="landing-ring opacity-0 absolute w-80 h-80 md:w-[420px] md:h-[420px] lg:w-[520px] lg:h-[520px] rounded-full border border-champagne-400/5" />
+        <div className="landing-ring opacity-0 absolute w-[350px] h-[350px] md:w-[450px] md:h-[450px] lg:w-[550px] lg:h-[550px] rounded-full border border-champagne-400/10" />
+        <div className="landing-ring opacity-0 absolute w-[420px] h-[420px] md:w-[520px] md:h-[520px] lg:w-[640px] lg:h-[640px] rounded-full border border-champagne-400/5" />
 
         {/* Floating particles */}
         <div className="landing-particles absolute inset-0 pointer-events-none">
