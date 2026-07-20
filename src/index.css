@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles for high-ticket luxury aesthetic */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-noir-950 text-noir-100 font-sans;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Custom selection styling */
+  ::selection {
+    @apply bg-champagne-400/30 text-ivory-100;
+  }
+
+  /* Custom scrollbar for luxury feel */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-noir-950;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-noir-700 rounded-full;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gold-700;
+  }
+}
+
+@layer components {
+  /* Typography components */
+  .text-hero {
+    font-family: 'Cormorant Garamond', Georgia, Cambria, serif;
+    font-size: clamp(3rem, 8vw, 8rem);
+    line-height: 1;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    color: #fefef9;
+  }
+
+  .text-display {
+    font-family: 'Cormorant Garamond', Georgia, Cambria, serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.1;
+    font-weight: 300;
+    color: #fefef9;
+  }
+
+  .text-subheading {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    line-height: 1.3;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    color: #a4a4a4;
+  }
+
+  .text-body-elegant {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 1.125rem;
+    font-weight: 300;
+    line-height: 1.625;
+    letter-spacing: 0.08em;
+    color: #818181;
+  }
+
+  /* Gold accent text */
+  .text-accent {
+    color: #e5c98d;
+  }
+
+  /* Section spacing */
+  .section-padding {
+    padding-top: clamp(4rem, 10vh, 8rem);
+    padding-bottom: clamp(4rem, 10vh, 8rem);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-left: 5rem;
+      padding-right: 5rem;
+    }
+  }
+
+  /* Luxury border */
+  .border-luxury {
+    border: 1px solid #383838;
+  }
+
+  /* Button base */
+  .btn-luxury {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 2rem;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #fefef9;
+    background-color: transparent;
+    border: 1px solid rgba(229, 201, 141, 0.5);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .btn-luxury:hover {
+    background-color: rgba(229, 201, 141, 0.1);
+    border-color: #e5c98d;
+  }
+
+  .btn-luxury:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(229, 201, 141, 0.5), 0 0 0 4px #0a0a0a;
+  }
+
+  /* Link hover effect */
+  .link-luxury {
+    position: relative;
+    color: #fefef9;
+    letter-spacing: 0.08em;
+  }
+
+  .link-luxury::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #e5c98d;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .link-luxury:hover::after {
+    width: 100%;
+  }
+}
+
+@layer utilities {
+  /* Gradient overlays */
+  .gradient-overlay {
+    @apply absolute inset-0 bg-gradient-to-b from-noir-950/60 via-transparent to-noir-950;
+  }
+
+  .gradient-radial {
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(10, 10, 10, 0.8) 100%);
+  }
+
+  /* Subtle grain texture for luxury feel */
+  .grain-texture {
+    position: relative;
+  }
+
+  .grain-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Fade animations */
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+  .animate-delay-700 { animation-delay: 700ms; }
+}
