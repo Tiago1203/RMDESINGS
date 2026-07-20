@@ -99,6 +99,16 @@ El servidor de desarrollo estará disponible en `http://localhost:5173`
 ## 📖 Documentación
 
 - [ADR-001: Arquitectura y Stack Tecnológico](./docs/ADR-001-architecture-stack.md)
+- [ADR-002: Hero Video & GSAP Animations](./docs/ADR-002-hero-video-gsap.md)
+
+## ✨ Componentes Implementados
+
+### ✅ Hero Section
+- Video background con poster fallback para LCP optimizado
+- Animaciones GSAP con `gsap.context()` para 60fps
+- Parallax scroll effect
+- Navegación responsive
+- Accesibilidad WCAG 2.1 AA
 
 ## 🔧 Configuración de Desarrollo
 
