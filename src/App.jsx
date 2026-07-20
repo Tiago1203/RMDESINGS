@@ -1,19 +1,25 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lenis from '@studio-freight/lenis'
 import LandingPage from './components/LandingPage'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import FeatureGrid from './components/FeatureGrid'
-import CatalogPage from './components/CatalogPage'
-import Testimonials from './components/Testimonials'
-import ProcessSection from './components/ProcessSection'
 import Footer from './components/Footer'
+import HomePage from './pages/HomePage'
+import CategoryPage from './pages/CategoryPage'
 
 gsap.registerPlugin(ScrollTrigger)
 
-function MainSite() {
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+  return null
+}
+
+function MainLayout() {
   const mainRef = useRef(null)
 
   useEffect(() => {
@@ -21,19 +27,9 @@ function MainSite() {
 
     gsap.defaults({ ease: 'power3.out', duration: 0.8 })
 
-    /* entrance */
-    const entranceTl = gsap.timeline({ defaults: { ease: 'power4.out' } })
-
     gsap.set(mainRef.current, { opacity: 0 })
-    gsap.set('.hero-4d', { scale: 1.2, opacity: 0, filter: 'blur(20px)' })
-    gsap.set('.content-4d', { y: 100, opacity: 0 })
+    gsap.to(mainRef.current, { opacity: 1, duration: 0.6, ease: 'power2.out' })
 
-    entranceTl
-      .to(mainRef.current, { opacity: 1, duration: 0.6 })
-      .to('.hero-4d', { scale: 1, opacity: 1, filter: 'blur(0px)', duration: 1.2 }, '-=0.3')
-      .to('.content-4d', { y: 0, opacity: 1, duration: 0.8, stagger: 0.08 }, '-=0.5')
-
-    /* Lenis */
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -56,16 +52,15 @@ function MainSite() {
   return (
     <div ref={mainRef} className="relative min-h-screen bg-noir-950 grain-texture">
       <Navbar />
-
+      <ScrollToTop />
       <main className="lenis-smooth">
-        <div className="hero-4d"><Hero /></div>
-        <div className="content-4d"><FeatureGrid /></div>
-        <div className="content-4d"><CatalogPage /></div>
-        <div className="content-4d"><Testimonials /></div>
-        <div className="content-4d"><ProcessSection /></div>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/coleccion/:categorySlug" element={<CategoryPage />} />
+          <Route path="*" element={<HomePage />} />
+        </Routes>
       </main>
-
-      <div className="content-4d"><Footer /></div>
+      <Footer />
     </div>
   )
 }
@@ -90,7 +85,6 @@ function App() {
     })
   }, [transitioning])
 
-  /* fade-in when main site mounts after transition */
   useEffect(() => {
     if (!showLanding && wrapperRef.current) {
       gsap.fromTo(wrapperRef.current,
@@ -105,7 +99,9 @@ function App() {
       {showLanding ? (
         <LandingPage onEnter={handleEnter} />
       ) : (
-        <MainSite />
+        <BrowserRouter>
+          <MainLayout />
+        </BrowserRouter>
       )}
     </div>
   )
