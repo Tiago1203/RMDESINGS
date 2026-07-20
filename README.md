@@ -102,8 +102,9 @@ El servidor de desarrollo estará disponible en `http://localhost:5173`
 - [ADR-002: Hero Video & GSAP Animations](./docs/ADR-002-hero-video-gsap.md)
 - [ADR-003: FeatureGrid & ScrollTrigger](./docs/ADR-003-feature-grid-scrolltrigger.md)
 - [ADR-004: ProcessSection & Timeline](./docs/ADR-004-process-section-timeline.md)
+- [ADR-005: Footer & App Assembly](./docs/ADR-005-footer-and-app-assembly.md)
 
-## ✨ Componentes Implementados
+## ✨ Componentes Implementados - v1.0
 
 ### ✅ Hero Section
 - Video background con poster fallback para LCP optimizado
@@ -125,6 +126,13 @@ El servidor de desarrollo estará disponible en `http://localhost:5173`
 - Iconos con bounce animation
 - Responsive design (horizontal desktop / vertical mobile)
 - 4 pasos: Consulta, Diseño, Confección, Entrega
+
+### ✅ Footer
+- Newsletter form con estados (idle/loading/success)
+- Scroll-to-top button con visibilidad condicional
+- Navegación con efectos hover
+- Información de contacto
+- Links sociales con Instagram
 
 ## 🔧 Configuración de Desarrollo
 
