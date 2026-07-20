@@ -52,7 +52,7 @@ const FeatureCard = ({ feature, index }) => {
     if (!cardRef.current) return
 
     const ctx = gsap.context(() => {
-      // Card entrance with staggered reveal
+      // Card entrance with 4D effects
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: cardRef.current,
@@ -61,22 +61,31 @@ const FeatureCard = ({ feature, index }) => {
         },
       })
 
-      // Initial state
-      gsap.set(cardRef.current, { opacity: 0, y: 60 })
+      // Initial state - 4D depth
+      gsap.set(cardRef.current, { 
+        opacity: 0, 
+        y: 80, 
+        scale: 0.9, 
+        rotationX: 10,
+        filter: 'blur(8px)'
+      })
 
-      // Staggered entrance animation
+      // 4D entrance animation
       tl.to(cardRef.current, {
         opacity: 1,
         y: 0,
-        duration: 0.9,
-        ease: 'power3.out',
-        delay: index * 0.12,
+        scale: 1,
+        rotationX: 0,
+        filter: 'blur(0px)',
+        duration: 1.2,
+        ease: 'power4.out',
+        delay: index * 0.15,
       })
       .fromTo(
         contentRef.current.querySelector('.feature-icon'),
-        { scale: 0, rotation: -10 },
-        { scale: 1, rotation: 0, duration: 0.5, ease: 'back.out(1.7)' },
-        '-=0.5'
+        { scale: 0, rotation: -20, filter: 'blur(12px)' },
+        { scale: 1, rotation: 0, filter: 'blur(0px)', duration: 0.7, ease: 'back.out(1.7)' },
+        '-=0.6'
       )
       .fromTo(
         contentRef.current.querySelectorAll('.feature-animate'),

@@ -153,11 +153,33 @@
     background-color: transparent;
     border: 1px solid rgba(229, 201, 141, 0.5);
     transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow: hidden;
+  }
+
+  .btn-luxury::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(229, 201, 141, 0.2),
+      transparent
+    );
+    transition: left 0.6s;
+  }
+
+  .btn-luxury:hover::before {
+    left: 100%;
   }
 
   .btn-luxury:hover {
     background-color: rgba(229, 201, 141, 0.1);
     border-color: #e5c98d;
+    box-shadow: 0 0 30px rgba(229, 201, 141, 0.2);
   }
 
   .btn-luxury:focus {
@@ -207,9 +229,63 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 1;
+  }
+
+  /* Luxury shimmer effect */
+  .shimmer-effect {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer-effect::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(229, 201, 141, 0.1),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+
+  .shimmer-effect:hover::after {
+    left: 100%;
+  }
+
+  /* Elegant fade-in animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  /* Floating particle animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px);
+      opacity: 0.6;
+    }
+    50% {
+      transform: translateY(-20px) translateX(10px);
+      opacity: 1;
+    }
   }
 
   /* Fade animations */

@@ -98,7 +98,7 @@ const Navbar = () => {
             className="relative z-10 focus:outline-none focus:ring-2 focus:ring-champagne-400 rounded-sm"
             aria-label="RM Designs - Inicio"
           >
-            <Logo size={isScrolled ? 'default' : 'large'} animated={!isScrolled} />
+            <Logo size={isScrolled ? 'default' : 'large'} animated={true} />
           </a>
 
           {/* Desktop Navigation */}

@@ -41,3 +41,4 @@ coverage/
 
 # Misc
 *.local
+src/assets/*Zone.Identifier

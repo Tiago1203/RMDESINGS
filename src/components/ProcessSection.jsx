@@ -57,10 +57,13 @@ const ProcessStep = ({ step, index, isLast }) => {
     if (!stepRef.current) return
 
     const ctx = gsap.context(() => {
-      // Set initial state
+      // Set initial state - 4D depth
       gsap.set(stepRef.current, {
         opacity: 0,
-        y: 60,
+        y: 70,
+        scale: 0.88,
+        rotationY: 6,
+        filter: 'blur(8px)'
       })
 
       // Create timeline for sequential reveal
@@ -72,12 +75,15 @@ const ProcessStep = ({ step, index, isLast }) => {
         },
       })
 
-      // Step reveal animation
+      // 4D step reveal animation
       tl.to(stepRef.current, {
         opacity: 1,
         y: 0,
-        duration: 0.8,
-        ease: 'power3.out',
+        scale: 1,
+        rotationY: 0,
+        filter: 'blur(0px)',
+        duration: 1,
+        ease: 'power4.out',
       })
       // Icon animation
       .fromTo(
