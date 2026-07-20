@@ -5,14 +5,38 @@
 /* Base styles for high-ticket luxury aesthetic */
 @layer base {
   html {
-    scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Disable native smooth scroll for Lenis */
+    scroll-behavior: auto !important;
   }
 
   body {
     @apply bg-noir-950 text-noir-100 font-sans;
     text-rendering: optimizeLegibility;
+    /* Prevent scroll bouncing for smoother feel */
+    overflow-x: hidden;
+  }
+
+  /* Prevent layout shift on scroll */
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
   }
 
   /* Custom selection styling */
@@ -22,7 +46,7 @@
 
   /* Custom scrollbar for luxury feel */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
 
   ::-webkit-scrollbar-track {
@@ -37,6 +61,12 @@
 
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-gold-700;
+  }
+
+  /* Firefox scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #434343 #0a0a0a;
   }
 }
 
@@ -188,4 +218,18 @@
   .animate-delay-300 { animation-delay: 300ms; }
   .animate-delay-500 { animation-delay: 500ms; }
   .animate-delay-700 { animation-delay: 700ms; }
+
+  /* GPU acceleration hints for smooth animations */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  /* 60fps animation hints */
+  .animate-60fps {
+    transform: translate3d(0, 0, 0);
+    perspective: 1000px;
+    backface-visibility: hidden;
+  }
 }
