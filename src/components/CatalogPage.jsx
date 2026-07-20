@@ -1,9 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useRef, useState } from 'react'
 import { ArrowRight, Heart, Eye, Shirt, Footprints, Dumbbell, Watch } from 'lucide-react'
-
-gsap.registerPlugin(ScrollTrigger)
 
 /* ───────── DATA ───────── */
 const catalogData = {
@@ -145,27 +141,8 @@ const CategorySection = ({ catKey, data }) => {
   const Icon = data.icon
   const items = data[gender] || []
 
-  useEffect(() => {
-    if (!sectionRef.current) return
-    const ctx = gsap.context(() => {
-      gsap.fromTo(sectionRef.current.querySelector('.cat-hero-title'),
-        { opacity: 0, y: 60 },
-        { opacity: 1, y: 0, duration: 1, ease: 'power3.out',
-          scrollTrigger: { trigger: sectionRef.current, start: 'top 80%', toggleActions: 'play none none reverse' }
-        }
-      )
-      gsap.fromTo(sectionRef.current.querySelector('.cat-hero-sub'),
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
-          scrollTrigger: { trigger: sectionRef.current, start: 'top 75%', toggleActions: 'play none none reverse' }
-        }
-      )
-    }, sectionRef)
-    return () => ctx.revert()
-  }, [])
-
   return (
-    <section ref={sectionRef} id={`cat-${catKey}`} className="relative overflow-hidden">
+    <section ref={sectionRef} id={`cat-${catKey}`} className="relative">
       {/* Hero banner */}
       <div className="relative h-[60vh] md:h-[70vh] flex items-center justify-center" style={{ background: data.heroGradient }}>
         {/* Ambient glow */}
@@ -173,15 +150,15 @@ const CategorySection = ({ catKey, data }) => {
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, rgba(229,201,141,0.06) 0%, transparent 60%)' }} />
 
         <div className="relative z-10 text-center px-6">
-          <div className="cat-hero-title opacity-0 flex justify-center mb-6">
+          <div className="flex justify-center mb-6">
             <div className="w-16 h-16 rounded-full border border-champagne-400/20 flex items-center justify-center">
               <Icon size={28} className="text-champagne-400" strokeWidth={1.5} />
             </div>
           </div>
-          <h2 className="cat-hero-title opacity-0 font-display text-hero text-ivory-100 mb-4">
+          <h2 className="font-display text-hero text-ivory-100 mb-4">
             {data.title}
           </h2>
-          <p className="cat-hero-sub opacity-0 text-noir-300 text-base md:text-lg tracking-wide">{data.subtitle}</p>
+          <p className="text-noir-300 text-base md:text-lg tracking-wide">{data.subtitle}</p>
         </div>
       </div>
 
@@ -230,25 +207,20 @@ const CatalogPage = () => {
   const navRef = useRef(null)
   const [active, setActive] = useState('trajes')
 
-  const scrollToCategory = (key) => {
-    setActive(key)
-    const el = document.getElementById(`cat-${key}`)
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
-
   return (
     <div className="relative bg-noir-950">
-      {/* Sticky category nav */}
-      <nav ref={navRef} className="sticky top-0 z-40 bg-noir-950/95 backdrop-blur-md border-b border-noir-800/50">
+      {/* Category nav */}
+      <nav ref={navRef} className="relative z-40 bg-noir-950 border-b border-noir-800/50">
         <div className="max-w-7xl mx-auto section-padding py-4 flex items-center justify-between">
           <span className="text-champagne-400 text-xs tracking-[0.3em] uppercase hidden md:block">Catálogo</span>
           <div className="flex gap-1 mx-auto md:mx-0 overflow-x-auto">
             {categoryOrder.map((key) => {
               const Icon = catalogData[key].icon
               return (
-                <button
+                <a
                   key={key}
-                  onClick={() => scrollToCategory(key)}
+                  href={`#cat-${key}`}
+                  onClick={() => setActive(key)}
                   className={`flex items-center gap-2 px-4 py-2.5 text-xs tracking-[0.15em] uppercase whitespace-nowrap transition-all duration-300 ${
                     active === key
                       ? 'text-champagne-400 border-b-2 border-champagne-400'
@@ -257,7 +229,7 @@ const CatalogPage = () => {
                 >
                   <Icon size={14} strokeWidth={1.5} />
                   {catalogData[key].title}
-                </button>
+                </a>
               )
             })}
           </div>
