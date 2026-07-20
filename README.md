@@ -104,6 +104,7 @@ El servidor de desarrollo estará disponible en `http://localhost:5173`
 - [ADR-004: ProcessSection & Timeline](./docs/ADR-004-process-section-timeline.md)
 - [ADR-005: Footer & App Assembly](./docs/ADR-005-footer-and-app-assembly.md)
 - [ADR-006: Branding & Logo Integration](./docs/ADR-006-branding-and-logo-integration.md)
+- [ADR-008: Smooth Scroll & Immersive UX](./docs/ADR-008-smooth-scroll-immersive-ux.md)
 
 ## ✨ Componentes Implementados - v1.0
 
@@ -157,6 +158,12 @@ El servidor de desarrollo estará disponible en `http://localhost:5173`
 | Champagne 400 | `#e5c98d` | Acentos dorados |
 | Gold 600 | `#d4a82a` | Highlights |
 | Ivory 100 | `#fefef9` | Texto principal |
+
+### Smooth Scrolling
+- **Lenis** para desplazamiento suave con inercia
+- Integración con GSAP ScrollTrigger
+- Animaciones sincronizadas 60fps
+- GPU-accelerated transforms
 
 ## 🔧 Configuración de Desarrollo
 
